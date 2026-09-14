@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_shared_resource_links",
+  "info": {
+    "displayName": "ResourceLink"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "href": {
+      "type": "string",
+      "required": true
+    },
+    "audience": {
+      "type": "enumeration",
+      "enum": ["all", "parents", "coaches", "student-athletes", "educators", "officials"],
+      "default": "all"
+    },
+    "download": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

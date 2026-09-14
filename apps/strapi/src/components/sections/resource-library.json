@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_sections_resource_libraries",
+  "info": {
+    "displayName": "ResourceLibrary"
+  },
+  "options": {},
+  "attributes": {
+    "title": { "type": "string", "required": true },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": { "preset": "defaultCkEditor" }
+    },
+    "resources": {
+      "type": "component",
+      "component": "shared.resource-link",
+      "repeatable": true
+    }
+  }
+}

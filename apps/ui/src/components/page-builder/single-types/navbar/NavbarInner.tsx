@@ -4,7 +4,6 @@ import type { Data } from "@repo/strapi-types"
 import type { Locale } from "next-intl"
 
 import { Container } from "@/components/elementary/Container"
-import LocaleSwitcher from "@/components/elementary/LocaleSwitcher"
 import { StrapiBasicImage } from "@/components/page-builder/components/utilities/StrapiBasicImage"
 import StrapiImageWithLink from "@/components/page-builder/components/utilities/StrapiImageWithLink"
 import StrapiLink from "@/components/page-builder/components/utilities/StrapiLink"
@@ -29,8 +28,8 @@ export function NavbarInner({
 }) {
   return (
     <NavbarMobileProvider>
-      <header className="bg-background/60 sticky top-0 z-50 h-16 w-full border-b shadow-sm backdrop-blur-md transition-colors duration-300">
-        <div className="flex h-16 items-center">
+      <header className="border-hcamp-deep/15 bg-hcamp-mist/90 sticky top-0 z-50 h-18 w-full border-b shadow-[0_4px_24px_rgba(7,59,76,0.08)] backdrop-blur-md transition-colors duration-300">
+        <div className="flex h-18 items-center">
           <Container className="flex h-full items-center justify-between px-6">
             {/* LEFT SIDE */}
             <div className="flex items-center gap-2">
@@ -53,7 +52,6 @@ export function NavbarInner({
             {/* RIGHT SIDE */}
             <div className="hidden h-full items-center gap-2 pl-4 lg:flex">
               <NavbarAuthSection sessionSSR={session} />
-              <LocaleSwitcher locale={locale} />
               <div className="flex h-8 w-px flex-1 bg-black/70" />
               {navbarData?.primaryButtons?.map((button) => (
                 <StrapiLink key={button.id} component={button} />
@@ -67,7 +65,6 @@ export function NavbarInner({
         navbarItems={navbarData?.navbarItems}
         primaryButtons={navbarData?.primaryButtons}
         session={session}
-        locale={locale}
       />
     </NavbarMobileProvider>
   )

@@ -73,6 +73,9 @@
         "sections.statistics",
         "sections.features-list",
         "sections.cta-banner",
+        "sections.events-list",
+        "sections.resource-library",
+        "sections.video-callout",
         "utilities.ck-editor-text",
         "utilities.tip-tap-rich-text"
       ]

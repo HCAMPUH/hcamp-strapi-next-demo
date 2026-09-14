@@ -5,12 +5,15 @@ import StrapiNewsletterForm from "@/components/page-builder/components/forms/Str
 import StrapiAnimatedLogoRow from "@/components/page-builder/components/sections/StrapiAnimatedLogoRow"
 import StrapiCarousel from "@/components/page-builder/components/sections/StrapiCarousel"
 import StrapiCTABanner from "@/components/page-builder/components/sections/StrapiCTABanner"
+import StrapiEventsList from "@/components/page-builder/components/sections/StrapiEventsList"
 import StrapiFaq from "@/components/page-builder/components/sections/StrapiFaq"
 import { StrapiFeaturesList } from "@/components/page-builder/components/sections/StrapiFeaturesList"
 import { StrapiStatistics } from "@/components/page-builder/components/sections/StrapiFigures"
 import StrapiHeadingWithCTAButton from "@/components/page-builder/components/sections/StrapiHeadingWithCTAButton"
 import StrapiHero from "@/components/page-builder/components/sections/StrapiHero"
 import StrapiImageWithCTAButton from "@/components/page-builder/components/sections/StrapiImageWithCTAButton"
+import StrapiResourceLibrary from "@/components/page-builder/components/sections/StrapiResourceLibrary"
+import StrapiVideoCallout from "@/components/page-builder/components/sections/StrapiVideoCallout"
 import StrapiCkEditorContent from "@/components/page-builder/components/utilities/StrapiCkEditorContent"
 import StrapiTipTapEditorContent from "@/components/page-builder/components/utilities/StrapiTipTapEditorContent"
 
@@ -40,6 +43,9 @@ export const PageContentComponents: Partial<
   "sections.statistics": StrapiStatistics,
   "sections.features-list": StrapiFeaturesList,
   "sections.cta-banner": StrapiCTABanner,
+  ["sections.events-list" as UID.Component]: StrapiEventsList,
+  ["sections.resource-library" as UID.Component]: StrapiResourceLibrary,
+  ["sections.video-callout" as UID.Component]: StrapiVideoCallout,
 
   // Forms
   "forms.contact-form": StrapiContactForm,

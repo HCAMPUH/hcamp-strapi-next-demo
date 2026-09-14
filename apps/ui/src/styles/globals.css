@@ -4,6 +4,16 @@
 
 @plugin "tailwindcss-animate";
 
+@theme static {
+  --color-hcamp-ink: #12313d;
+  --color-hcamp-deep: #073b4c;
+  --color-hcamp-lagoon: #0b7285;
+  --color-hcamp-sea: #dff3f1;
+  --color-hcamp-mist: #f4faf9;
+  --color-hcamp-coral: #e76f51;
+  --color-hcamp-sun: #f4a261;
+}
+
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
@@ -13,6 +23,7 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
+
   *,
   ::after,
   ::before,
@@ -32,30 +43,35 @@
   }
 
   html {
+    background: #f4faf9;
     scroll-behavior: smooth;
     /* This is size of the navbar - 64px + some padding - change if needed */
     scroll-padding-top: 72px;
   }
 
   /* TiptapRichText renders list items with a wrapping <p> tag but we want the bullet/number and the item text on one line */
-  .tiptap-list > li > p:first-child {
+  .tiptap-list>li>p:first-child {
     display: inline;
     margin: 0;
   }
 
-  .tiptap-unordered-list > li::marker {
+  .tiptap-unordered-list>li::marker {
     color: black;
   }
 }
 
 @utility no-scrollbar {
+
   /* Hide scrollbar for Chrome, Safari and Opera */
   &::-webkit-scrollbar {
     display: none;
   }
+
   /* Hide scrollbar for IE, Edge and Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 @utility container {
@@ -84,21 +100,25 @@
 }
 
 .bg-gradient-slider {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.8) 0%,
-    rgba(255, 255, 255, 0) 31%,
-    rgba(255, 255, 255, 0) 69.5%,
-    rgba(255, 255, 255, 0.8) 100%
-  ) !important;
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(255, 255, 255, 0) 31%,
+      rgba(255, 255, 255, 0) 69.5%,
+      rgba(255, 255, 255, 0.8) 100%) !important;
 }
 
 @layer base {
   * {
-    @apply border-gray-300 outline-purple-500/50;
+    @apply border-slate-200 outline-hcamp-lagoon/50;
   }
+
   body {
-    @apply text-black dark:text-white;
+    @apply bg-hcamp-mist text-hcamp-ink antialiased;
+  }
+
+  ::selection {
+    background: #b7e4df;
+    color: #073b4c;
   }
 }
 
@@ -106,6 +126,7 @@
   0% {
     transform: translateX(0%);
   }
+
   100% {
     transform: translateX(-100%);
   }
@@ -115,16 +136,19 @@
   0% {
     transform: translateX(0%);
   }
+
   100% {
     transform: translateX(100%);
   }
 }
+
 /* Use this when you need a hard inversion for img/svg elements that don't follow currentColor.
      .icon--invert-on-dark: when in .dark mode, apply a filter that inverts light<->dark.
 */
 .icon--invert-on-dark {
   filter: none;
 }
+
 .dark .icon--invert-on-dark {
   filter: invert(1) hue-rotate(180deg) brightness(0.95) contrast(1.05);
 }

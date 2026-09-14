@@ -1,4 +1,4 @@
-import type { NextRequest, NextResponse } from "next/server"
+import { NextResponse, type NextRequest } from "next/server"
 import createMiddleware from "next-intl/middleware"
 
 import { routing } from "@/lib/navigation"
@@ -34,12 +34,25 @@ export default async function proxy(req: NextRequest) {
     response = await runProxy(req)
     if (response) break
   }
+  if (!hasLocalePrefix(req.nextUrl.pathname)) {
+    const localizedUrl = req.nextUrl.clone()
+    localizedUrl.pathname = `/en${
+      req.nextUrl.pathname === "/" ? "" : req.nextUrl.pathname
+    }`
+    response = NextResponse.rewrite(localizedUrl)
+  }
   response ??= intlProxy(req)
 
   // CSP / X-Frame-Options are applied here (not next.config, which is build
   // time) because frame-ancestors depends on the runtime STRAPI_URL. Wrapping
   // the composed response applies them to redirects and guarded routes too.
   return withSecurityHeaders(req, response)
+}
+
+function hasLocalePrefix(pathname: string) {
+  const firstSegment = pathname.split("/").find(Boolean)
+
+  return firstSegment != null && routing.locales.includes(firstSegment as "en")
 }
 
 export const config = {
@@ -49,10 +62,6 @@ export const config = {
     "/",
     // Gate the generated sitemap in non-production deployed environments
     "/sitemap.xml",
-    // Set a cookie to remember the previous locale for
-    // all requests that have a locale prefix
-    `/(cs|en)/:path*`,
-
     // Skip all paths that should not be internationalized
 
     "/((?!_next|_vercel|api|images|robots.txt|favicon.ico|sitemap).*)",

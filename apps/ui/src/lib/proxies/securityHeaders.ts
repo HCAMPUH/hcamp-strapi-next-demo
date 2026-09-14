@@ -90,9 +90,8 @@ function buildCsp({
       // "https://*.doubleclick.net",
       // "https://www.google.com",
     ].join(" "),
-    // Example — add framed third parties (e.g. tag manager preview) here:
-    // "frame-src 'self' https://www.googletagmanager.com https://bid.g.doubleclick.net https://td.doubleclick.net",
-    "frame-src 'self'",
+    // Educational videos are embedded from the providers used by the source site.
+    "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com",
     "worker-src 'self' blob:",
     [
       "media-src 'self' blob: https:",

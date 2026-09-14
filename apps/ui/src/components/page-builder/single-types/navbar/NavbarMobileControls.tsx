@@ -2,7 +2,6 @@
 
 import type { Data } from "@repo/strapi-types"
 import { Menu, X } from "lucide-react"
-import type { Locale } from "next-intl"
 
 import { MobileNavigation } from "@/components/page-builder/single-types/navbar/MobileNavigation"
 import { Button } from "@/components/ui/button"
@@ -32,12 +31,10 @@ export function NavbarMobileNavigation({
   navbarItems,
   primaryButtons,
   session,
-  locale,
 }: {
   readonly primaryButtons?: Data.ContentType<"api::navbar.navbar">["primaryButtons"]
   readonly navbarItems?: Data.ContentType<"api::navbar.navbar">["navbarItems"]
   readonly session?: BetterAuthSessionWithStrapi | null
-  readonly locale: Locale
 }) {
   const [mobileOpen, setMobileOpen] = useNavbarMobile()
 
@@ -48,7 +45,6 @@ export function NavbarMobileNavigation({
       isOpen={mobileOpen}
       setOpen={setMobileOpen}
       session={session}
-      locale={locale}
     />
   )
 }

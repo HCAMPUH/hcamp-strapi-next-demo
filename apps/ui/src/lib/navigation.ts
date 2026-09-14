@@ -6,13 +6,13 @@ import { defineRouting } from "next-intl/routing"
 import { getEnvVar } from "@/lib/env-vars"
 
 export const routing = defineRouting({
-  // A list of all locales that are supported
-  locales: ["cs", "en"],
+  // The site has one content locale; keep the internal locale contract for next-intl.
+  locales: ["en"],
 
   // Used when no locale matches
   defaultLocale: "en",
 
-  localePrefix: "as-needed",
+  localePrefix: "never",
 })
 
 // https://next-intl-docs.vercel.app/docs/routing/navigation

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_sections_video_callouts",
+  "info": {
+    "displayName": "VideoCallout"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": { "type": "string" },
+    "title": { "type": "string", "required": true },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": { "preset": "defaultCkEditor" }
+    },
+    "videoUrl": { "type": "string", "required": true },
+    "transcript": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": { "preset": "defaultCkEditor" }
+    }
+  }
+}

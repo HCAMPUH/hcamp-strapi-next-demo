@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_event_items",
+  "info": {
+    "displayName": "EventItem"
+  },
+  "options": {},
+  "attributes": {
+    "title": { "type": "string", "required": true },
+    "summary": { "type": "text" },
+    "startsAt": { "type": "datetime", "required": true },
+    "location": { "type": "string" },
+    "registrationUrl": { "type": "string" },
+    "eventType": { "type": "string" }
+  }
+}

@@ -23,7 +23,7 @@ export function StrapiFooter({ locale }: { readonly locale: Locale }) {
   const currentYear = now.getFullYear()
 
   return (
-    <div className="bg-primary/10 w-full border-t shadow-sm backdrop-blur transition-colors duration-300">
+    <div className="border-hcamp-deep/20 bg-hcamp-deep w-full border-t text-white shadow-[0_-8px_30px_rgba(7,59,76,0.12)] transition-colors duration-300">
       <Container className="pt-8 pb-4">
         <div className="flex flex-col justify-between gap-10 lg:flex-row">
           <div className="flex flex-col items-center justify-center space-y-4 md:items-start md:justify-start">
@@ -46,7 +46,7 @@ export function StrapiFooter({ locale }: { readonly locale: Locale }) {
                   <StrapiLink
                     key={link.id}
                     component={link}
-                    className="text-primary w-fit text-sm hover:underline"
+                    className="text-hcamp-sea w-fit text-sm hover:text-white hover:underline"
                   />
                 ))}
               </div>

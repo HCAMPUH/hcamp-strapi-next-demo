@@ -2,10 +2,9 @@
 
 import type { Data } from "@repo/strapi-types"
 import { ChevronLeft, ChevronRight, X } from "lucide-react"
-import { useTranslations, type Locale } from "next-intl"
+import { useTranslations } from "next-intl"
 import { useState } from "react"
 
-import LocaleSwitcher from "@/components/elementary/LocaleSwitcher"
 import StrapiLink from "@/components/page-builder/components/utilities/StrapiLink"
 import { NavbarAuthSection } from "@/components/page-builder/single-types/navbar/NavbarAuthSection"
 import Typography from "@/components/typography"
@@ -19,7 +18,6 @@ interface MobileNavigationProps {
   primaryButtons?: Data.ContentType<"api::navbar.navbar">["primaryButtons"]
   navbarItems?: Data.ContentType<"api::navbar.navbar">["navbarItems"]
   session?: BetterAuthSessionWithStrapi | null
-  locale?: Locale
 }
 
 export function MobileNavigation({
@@ -28,7 +26,6 @@ export function MobileNavigation({
   isOpen,
   setOpen,
   session,
-  locale,
 }: MobileNavigationProps) {
   const t = useTranslations("general")
   const [activeItem, setActiveItem] =
@@ -121,11 +118,10 @@ export function MobileNavigation({
       </div>
       {/* FOOTER */}
       <div className="mt-auto space-y-4 border-t px-6 py-4">
-        {/* Auth + Locale */}
+        {/* Auth */}
         {/* TO DO: these components should be changed to mobile view in the future */}
         <div className="flex w-full items-center justify-between gap-2">
           <NavbarAuthSection sessionSSR={session} />
-          {locale ? <LocaleSwitcher locale={locale} /> : null}
         </div>
         {primaryButtons?.length ? (
           <div className="space-y-2">
