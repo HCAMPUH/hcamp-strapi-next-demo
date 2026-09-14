@@ -3,9 +3,9 @@
     "module": "CommonJS",
     "moduleResolution": "Node",
     "lib": [
-      "ES2020"
+      "ES2022"
     ],
-    "target": "ES2019",
+    "target": "ES2022",
     "strict": false,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
