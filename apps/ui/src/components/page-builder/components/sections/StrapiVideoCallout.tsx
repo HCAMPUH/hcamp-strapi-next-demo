@@ -81,7 +81,8 @@ function toEmbedUrl(value: string) {
       url.hostname.endsWith("vimeo.com") &&
       !url.hostname.startsWith("player.")
     ) {
-      const videoId = url.pathname.split("/").findLast(Boolean)
+      const pathSegments = url.pathname.split("/").filter(Boolean)
+      const videoId = pathSegments.at(-1)
 
       return videoId ? `https://player.vimeo.com/video/${videoId}` : value
     }
